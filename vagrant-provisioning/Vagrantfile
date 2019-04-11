@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
     config.vm.define "node#{i}.k8s" do |c|
       c.vm.hostname = "node#{i}.k8s"
       c.vm.network "private_network", ip: "192.168.0.1#{i}"
-      c.vm.provision "shell", path: "bootstrap_worker.sh"
+      c.vm.provision "shell", path: "bootstrap_node.sh"
     end
   end
 end

@@ -3,9 +3,9 @@
 # Update hosts file
 echo "[TASK 1] Update /etc/hosts file"
 cat >>/etc/hosts<<EOF
-172.42.42.100 kmaster.example.com kmaster
-172.42.42.101 kworker1.example.com kworker1
-172.42.42.102 kworker2.example.com kworker2
+192.168.0.10 master.k8s master
+192.168.0.11 node1.k8s node1
+192.168.0.12 node2.k8s node2
 EOF
 
 # Install docker from Docker-ce repository
@@ -56,7 +56,7 @@ EOF
 
 ## Install Kubernetes
 echo "[TASK 9] Install Kubernetes (kubeadm, kubelet and kubectl)"
-yum install -y -q kubeadm-1.9.0 kubelet-1.9.0 kubectl-1.9.0 > /dev/null 2>&1
+yum install -y -q kubeadm-1.11.0 kubelet-1.11.0 kubectl-1.11.0 > /dev/null 2>&1
 
 ## Start and Enable kubelet service
 echo "[TASK 10] Enable and start kubelet service"
