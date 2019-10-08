@@ -14,6 +14,9 @@ yum install -y -q yum-utils device-mapper-persistent-data lvm2 > /dev/null 2>&1
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo > /dev/null 2>&1
 yum install -y -q docker-ce >/dev/null 2>&1
 
+# Add vagrant user to docker group
+usermod -aG docker vagrant > /dev/null 2>&1
+
 # Enable docker service
 echo "[TASK 3] Enable and start docker service"
 systemctl enable docker >/dev/null 2>&1
