@@ -7,7 +7,7 @@
 
 <br/>
 
-**Cubectl installation:**
+**kubectl installation:**
 
 ```
 $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
@@ -122,7 +122,13 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s h
 **Original src:**  
 https://github.com/justmeandopensource/kubernetes
 
+<br/>
 
 ---
 
-<a href="https://marley.org"><strong>Marley</strong></a>
+<br/>
+
+**Marley**
+
+Any questions in english: <a href="https://jsdev.org/chat/">Telegram Chat</a>  
+Любые вопросы на русском: <a href="https://jsdev.ru/chat/">Телеграм чат</a>
