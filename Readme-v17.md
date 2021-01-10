@@ -37,7 +37,7 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s h
 
     $ git clone https://github.com/webmakaka/vagrant-kubernetes-3-node-cluster-centos7 .
 
-    $ cd ~/vagrant-kubernetes-3-node-cluster-centos7/latest
+    $ cd latest
 
     $ vagrant box update
 
@@ -57,7 +57,15 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s h
 
 <br/>
 
-    $ mkdir -p ~/.kube/config
+    $ mkdir -p ~/.kube
+
+<!--
+
+<br/>
+
+    $ export KUBECONFIG=/etc/kubernetes/admin.conf
+
+-->
 
 <br/>
 
