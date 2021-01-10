@@ -128,6 +128,96 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s h
     etcd-0               Healthy     {"health":"true"}                                                                             
 
 
+<br/>
+
+## Possible check
+
+
+
+<br/>
+
+```
+$ cat <<EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-cats-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-cats-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-cats-app
+        env: dev
+    spec:
+      containers:
+      - name: nodejs-cats-app
+        image: webmakaka/cats-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+EOF
+```
+
+<br/>
+
+```
+$ cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-cats-app-nodeport
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30123
+  selector:
+    app: nodejs-cats-app
+EOF
+```
+
+<br/>
+
+```
+$ kubectl get pods
+NAME                              READY   STATUS    RESTARTS   AGE
+nodejs-cats-app-56cc7754f-gznk2   1/1     Running   0          2m57s
+nodejs-cats-app-56cc7754f-lsqxk   1/1     Running   0          2m57s
+nodejs-cats-app-56cc7754f-qx59d   1/1     Running   0          2m57s
+```
+
+
+
+<br/>
+
+```
+$ kubectl get svc
+NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes                 ClusterIP   10.96.0.1       <none>        443/TCP        12m
+nodejs-cats-app-nodeport   NodePort    10.97.149.237   <none>        80:30123/TCP   3m54s
+
+```
+
+<br/>
+
+Should work
+
+````
+http://192.168.0.11:30123
+http://192.168.0.12:30123
+````
+
+<br/>
+
+    // Delete created resources
+    // $ kubectl delete svc nodejs-cats-app-nodeport
+    // $ kubectl delete deployment nodejs-cats-app
+
 
 <br/>
 <br/>
@@ -145,3 +235,4 @@ https://github.com/justmeandopensource/kubernetes
 
 Any questions in english: <a href="https://jsdev.org/chat/">Telegram Chat</a>  
 Любые вопросы на русском: <a href="https://jsdev.ru/chat/">Телеграм чат</a>
+
