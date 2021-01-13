@@ -3,6 +3,12 @@
 
 <br/>
 
+### [Vagrant kubernetes 3 node cluster with ubuntu 20.04](https://github.com/webmakaka/vagrant-kubernetes-3-node-cluster-ubuntu-20.04)
+
+___
+
+<br/>
+
 ### On Host (with linux)
 
 <br/>
@@ -33,7 +39,7 @@ $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s h
 
 <br/>
 
-    $ mkdir ~/vagrant-kubernetes && cd ~/vagrant-kubernetes
+    $ mkdir ~/vagrant-kubernetes-centos-7 && cd ~/vagrant-kubernetes-centos-7
 
     $ git clone https://github.com/webmakaka/vagrant-kubernetes-3-node-cluster-centos7 .
 
