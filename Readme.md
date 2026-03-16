@@ -231,14 +231,10 @@ http://192.168.0.12:30123
 **Original src:**  
 https://github.com/justmeandopensource/kubernetes
 
-<br/>
+<br/><br/>
 
 ---
 
 <br/>
 
-**Marley**
-
-Any questions in english: <a href="https://jsdev.org/chat/">Telegram Chat</a>  
-Любые вопросы на русском: <a href="https://jsdev.ru/chat/">Телеграм чат</a>
-
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, big data, golang</a>
